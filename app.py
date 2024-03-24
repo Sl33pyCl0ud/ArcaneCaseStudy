@@ -1,8 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
+
+# Obtenez le chemin absolu du répertoire courant
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/julie/OneDrive/Bureau/Github Project/ArcaneCaseStudy/Sqlite/ArcaneCaseStudyDatabase.db'
+# Utilisez un chemin relatif pour la base de données SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'Sqlite', 'ArcaneCaseStudyDatabase.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
