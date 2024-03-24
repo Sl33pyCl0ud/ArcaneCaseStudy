@@ -1,0 +1,23 @@
+CREATE TABLE biens_immobiliers (
+    id INTEGER PRIMARY KEY,
+    nom TEXT,
+    description TEXT,
+    type_de_bien TEXT,
+    ville TEXT,
+    pieces INTEGER,
+    caracteristiques_pieces TEXT,
+    proprietaire_id INTEGER,
+    FOREIGN KEY (proprietaire_id) REFERENCES utilisateurs(id)
+);
+
+CREATE TABLE utilisateurs (
+    id INTEGER PRIMARY KEY,
+    nom TEXT,
+    prenom TEXT,
+    date_de_naissance TEXT,
+    email TEXT UNIQUE,
+    mot_de_passe TEXT,
+    ville TEXT
+);
+
+
